@@ -1,5 +1,8 @@
 # Source: https://github.com/kubernetes/kubernetes/blob/master/.gitignore
 
+# vim
+*.swp
+
 # OSX leaves these everywhere on SMB shares
 ._*
 
