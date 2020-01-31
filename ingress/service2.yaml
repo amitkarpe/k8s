@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2020-01-31T05:55:15Z"
+  labels:
+    run: web2
+  name: web2
+  namespace: ingress
+  resourceVersion: "58411"
+  selfLink: /api/v1/namespaces/ingress/services/web2
+  uid: bb48c6a5-0b98-4e7e-b00b-8a2fa9ed0466
+spec:
+  clusterIP: 10.96.217.147
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 32165
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    run: web2
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
