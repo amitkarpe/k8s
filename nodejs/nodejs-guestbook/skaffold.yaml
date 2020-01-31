@@ -1,0 +1,19 @@
+apiVersion: skaffold/v2alpha2
+kind: Config
+metadata:
+  name: nodejs-guestbook--
+build:
+  artifacts:
+  - image: nodejs-guestbook-backend
+    context: src/backend
+  - image: nodejs-guestbook-frontend
+    context: src/frontend
+deploy:
+  kubectl:
+    manifests:
+    - kubernetes-manifests/guestbook-backend.deployment.yaml
+    - kubernetes-manifests/guestbook-backend.service.yaml
+    - kubernetes-manifests/guestbook-frontend.deployment.yaml
+    - kubernetes-manifests/guestbook-frontend.service.yaml
+    - kubernetes-manifests/mongo.deployment.yaml
+    - kubernetes-manifests/mongo.service.yaml

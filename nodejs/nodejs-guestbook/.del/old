@@ -1,0 +1,19 @@
+apiVersion: skaffold/v1beta15
+kind: Config
+build:
+  tagPolicy:
+    sha256: {}
+  artifacts:
+    - image: nodejs-guestbook-backend
+      context: src/backend
+    - image: nodejs-guestbook-frontend
+      context: src/frontend
+deploy:
+  kubectl:
+    manifests:
+      - ./kubernetes-manifests/**.yaml
+profiles:
+  - name: cloudbuild
+    build:
+      googleCloudBuild:
+        projectId: genuine-energy-264308
