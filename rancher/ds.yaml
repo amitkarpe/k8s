@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  labels:
+    run: ds3
+  name: ds3
+spec:
+  template:
+    metadata:
+      labels:
+        run: ds3
+    spec:
+      nodeSelector: 
+      - ip-10-23-0-111.ap-southeast-1.compute.internal
+      containers:
+      - image: nginx
+        name: ds3
