@@ -1,6 +1,7 @@
 # Demo for Ingress
 
 Source code : https://github.com/amitkarpe/k8s
+
 Reference: [Set up Ingress on Minikube with the NGINX Ingress Controller](https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/)
 
 Create web deployment using image hello-app:1.0
@@ -40,11 +41,12 @@ curl $(minikube service web2 --url -n ingress)
 
 Output from curl, while accessing ingress endpoints:
 ```
-(⎈ |minikube:ingress) k8s/ingress   master  curl hello-world.info
+$ curl hello-world.info
 Hello, world!
 Version: 1.0.0
 Hostname: web-9bbd7b488-k26f6
-(⎈ |minikube:ingress) k8s/ingress   master  curl hello-world.info/v2
+
+$ curl hello-world.info/v2
 Hello, world!
 Version: 2.0.0
 Hostname: web2-74cf4946cc-69sdv
